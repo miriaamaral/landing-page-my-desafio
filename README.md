@@ -1,98 +1,79 @@
-# 🚀 Desafio Landing Page: HTML & CSS Essencial para um Front-End! 
+# ✨ Miriã Amaral - Landing Page: Meu Primeiro Desafio de Portfólio ✨
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/miriaamaral/desafio-minha-landing-page)](https://github.com/miriaamaral/desafio-minha-landing-page/commits/main)
-[![GitHub contributors](https://img.shields.io/github/contributors/miriaamaral/desafio-minha-landing-page)](https://github.com/miriaamaral/desafio-minha-landing-page/graphs/contributors)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Bem-vindo(a) ao meu primeiro grande desafio de portfólio como Desenvolvedora Front-End\! Este projeto representa uma etapa importante da minha jornada, onde apliquei e consolidei diversos conhecimentos em HTML, CSS e JavaScript para criar uma landing page profissional e interativa.
 
-E aí, meu 🐙! Prepare-se para decolar no universo Frontend! 🌟 Este repositório é a minha solução para um desafio da DIO: a construção de uma **Landing Page responsiva e moderna** utilizando apenas as bases do desenvolvimento web: **HTML e CSS puros**.
+## 🚀 Sobre o Projeto
 
-Este projeto demonstra a arte de estruturar conteúdo de forma semântica e estilizá-lo para criar uma experiência de usuário atraente em qualquer dispositivo. É o pontapé inicial para o mundo do design web e uma prova de que a simplicidade pode gerar resultados incríveis! Vem conferir! 😉
+Este repositório contém o código-fonte de uma landing page pessoal, desenvolvida com o objetivo de apresentar meus projetos e um pouco sobre quem eu sou. É um projeto que demonstra minha evolução e comprometimento com as boas práticas de desenvolvimento web.
 
----
+## 💡 Funcionalidades Destaque
 
-### **✨ Destaques da Landing Page:**
+* **Design Responsivo:** Otimizado para visualização em qualquer dispositivo, do desktop ao mobile.
+* **Alternador de Tema (Claro/Escuro):** Personalize sua experiência de visualização com o tema de sua preferência. A página lembra sua escolha para futuras visitas e respeita a preferência do seu sistema operacional.
+* **Cards de Projeto Interativos:** Cada projeto é exibido com uma miniatura visual e um efeito suave de hover, convidando à exploração.
+* **Navegação Suave:** Menus com scroll suave para as seções da página.
+* **Acessibilidade:** Implementação de `aria-labels`, `alt-texts` e estados de foco para uma navegação inclusiva.
 
-* **Design Responsivo:** A página se adapta perfeitamente a diferentes tamanhos de tela (desktop, tablet, mobile), garantindo uma ótima experiência de usuário.
-* **HTML Semântico:** Estruturação do conteúdo com as tags HTML corretas (`<header>`, `<main>`, `<footer>`, `<section>`, etc.) para acessibilidade e otimização para motores de busca (SEO).
-* **Estilização Moderna com CSS:** Uso de propriedades CSS (provavelmente Flexbox para layouts flexíveis), cores vibrantes, tipografia atraente e espaçamento adequado para um visual profissional.
-* **Interatividade Básica:** (Se aplicável) Efeitos de *hover* em botões e links para fornecer feedback visual ao usuário.
-* **Estrutura Clara e Otimizada:** Código limpo e organizado, fácil de entender e manter, seguindo boas práticas de desenvolvimento Frontend.
-* **Foco no Core do Frontend:** Demonstra domínio das bases essenciais de HTML e CSS para qualquer desenvolvedor web.
+## 🛠 Tecnologias Utilizadas
 
----
+* **HTML5:** Estrutura semântica da página.
+* **CSS3 (com variáveis CSS):** Estilização completa, temas claro/escuro e responsividade.
+* **JavaScript (Vanilla JS):** Lógica para o alternador de tema e interatividade geral.
+* **Git & GitHub:** Controle de versão e hospedagem.
 
-### **💡 Lições Aprendidas e Desafios Superados:**
+## 📂 Meus Principais Projetos (Exemplos neste Portfólio)
 
-Este desafio foi uma ótima oportunidade para solidificar conhecimentos e enfrentar obstáculos. Algumas das principais lições e aprendizados foram:
+Explore os projetos abaixo e clique para ver o código no GitHub\!
 
-1.  **Semântica HTML na Prática:** A importância de usar tags como `<header>`, `<nav>`, `<section>`, `<aside>`, `<footer>` não apenas para a estrutura visual, mas para a acessibilidade e o SEO.
-2.  **Dominando a Responsividade:** Entender e aplicar *Media Queries* no CSS para adaptar o layout a diferentes dispositivos, garantindo que o design seja coeso e funcional em qualquer tela.
-3.  **Layout com Flexbox/Grid:** Aprofundar o uso de propriedades de layout CSS (como Flexbox, para este tipo de projeto) para organizar elementos de forma flexível e eficiente, evitando posicionamentos "quebrados".
-4.  **Otimização de Imagens e Assets:** A importância de usar imagens otimizadas para a web, considerando formatos, tamanhos e carregamento rápido para melhorar a performance da página.
-5.  **Fluxo de Trabalho de Frontend:** Desde a estruturação inicial até a estilização final e o deploy em plataformas como o GitHub Pages, cada etapa reforça o processo de desenvolvimento de um projeto web.
+<br>
+<div align="center">
+    <a href="https://github.com/miriaamaral/JS-Jogo-Detona-Ralph" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-detona-ralph.png" alt="Miniatura do Projeto Jogo Detona Ralph" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Jogo Detona Ralph</p>
+    </a>
+    <a href="https://github.com/miriaamaral/JS-Jogo-da-Memoria" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-jogo-da-memoria.png" alt="Miniatura do Projeto Jogo da Memória" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Jogo da Memória JS</p>
+    </a>
+    <a href="https://github.com/miriaamaral/JS-Pokedex" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-pokedex.png" alt="Miniatura do Projeto Pokedex JS" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Pokedex JS</p>
+    </a>
+    <a href="https://github.com/miriaamaral/JS-Jogo-YuGiOh" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-jogo-yugioh.png" alt="Miniatura do Projeto Jogo Yu-Gi-Oh" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Jogo Yu-Gi-Oh</p>
+    </a>
+    <a href="https://github.com/miriaamaral/js-keyboard-virtual-zoo" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-keyboard-virtual-zoo.png" alt="Miniatura do Projeto Keyboard Virtual Zoo" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Keyboard Virtual Zoo</p>
+    </a>
+    <a href="https://github.com/miriaamaral/Landing-Page-Mundo-Invertido" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-mundo-invertido.png" alt="Miniatura do Projeto Landing Page Mundo Invertido" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Landing Page Mundo Invertido</p>
+    </a>
+    <a href="https://github.com/miriaamaral/Landing-Page-Multiverso-Homem-Aranha" target="_blank" style="text-decoration: none;">
+        <img src="./assets/img/thumb-multiverso-homem-aranha.png" alt="Miniatura do Projeto Landing Page Multiverso Homem Aranha" width="300px" style="border-radius: 8px; margin: 10px; border: 1px solid #B18B77;">
+        <p style="color: #B18B77; font-weight: bold;">Landing Page Multiverso Homem Aranha</p>
+    </a>
+</div>
+<br>
 
-Cada "erro" ou desafio encontrado foi uma oportunidade de aprendizado e me deixou com um conhecimento mais sólido das ferramentas. Mão na massa é o melhor jeito!
+<div align="center">
+    <h3>🔗 Veja este Desafio Online:</h3>
+    <a href="https://miriaamaral.github.io/landing-page-my-desafio/" target="_blank" style="text-decoration: none;">
+        <img src="https://img.shields.io/badge/Deploy-Ver%20Online-B18B77?style=for-the-badge&logo=vercel&logoColor=white" alt="Ver Landing Page Online">
+    </a>
+</div>
 
----
+## ✉️ Contato
 
-### **📸 Veja a Landing Page em Ação!**
+Vamos nos conectar e construir algo incrível juntos\!
 
-Dê uma olhada no design e responsividade da página. Recomendo abrir o link e redimensionar a janela do navegador!
-
-Quer navegar pela página agora? Acesse a demo online!
-[**https://miriaamaral.github.io/desafio-minha-landing-page/**](https://miriaamaral.github.io/desafio-minha-landing-page/)
-
----
-
-### **🚀 Tecnologias Envolvidas:**
-
-* **HTML5:** Utilizado para estruturar todo o conteúdo da landing page de forma semântica, acessível e otimizada para buscadores.
-* **CSS3:** Responsável por toda a estilização, criação de layouts flexíveis (provavelmente com Flexbox), definição de cores, tipografia, efeitos visuais e a garantia de responsividade em diferentes dispositivos através de *Media Queries*.
-
----
-
-### **⚙️ Como Rodar o Projeto (Localmente):**
-
-1.  **Clone este repositório:**
-    ```bash
-    git clone [https://github.com/miriaamaral/desafio-minha-landing-page.git](https://github.com/miriaamaral/desafio-minha-landing-page.git)
-    ```
-2.  **Entre na pasta do projeto:**
-    ```bash
-    cd desafio-minha-landing-page
-    ```
-3.  **Abra o arquivo `index.html` no seu navegador.**
-    * Você pode simplesmente arrastar o `index.html` para a janela do navegador. Para uma experiência de desenvolvimento local mais robusta (com live-reload), considere usar a extensão "Live Server" no VS Code.
-
----
-
-### **🤝 Como Contribuir (Opcional):**
-
-Sinta-se à vontade para explorar o código, sugerir melhorias no design, na estrutura ou na responsividade, ou correções de bugs! Toda contribuição é bem-vinda e apreciada! ✨
-
-Para contribuir:
-
-1.  Faça um `fork` deste repositório.
-2.  Crie uma nova `branch` para sua feature (`git checkout -b feature/minha-feature`).
-3.  Faça suas alterações e `commit` as mudanças (`git commit -m 'feat: minha nova feature'`).
-4.  Envie para sua `branch` (`git push origin feature/minha-feature`).
-5.  Abra um `Pull Request` detalhando suas alterações.
+* **LinkedIn:** [Miriã Amaral](https://www.linkedin.com/in/miriaamaralcs)
+* **GitHub:** [miriaamaral](https://github.com/miriaamaral)
+* **Email:** [miriaamaralcs@gmail.com](mailto:miriaamaralcs@gmail.com)
+* **Discord:** [miriaamaralcustodiosantos](https://discord.com/channels/miriaamaralcustodiosantos)
 
 ---
 
-### **📝 Licença:**
-
-Este projeto está sob a licença MIT. 
----
-
-### **Conecte-se Comigo! 👋**
-
-Gostou da Landing Page, tem ideias para aprimorá-la, ou quer trocar uma ideia sobre HTML, CSS e desenvolvimento Frontend? Ficarei super feliz!
-
-* **LinkedIn:** [https://www.linkedin.com/in/miriaamaralcs](https://www.linkedin.com/in/miriaamaralcs)
-* **GitHub:** [https://github.com/miriaamaral](https://github.com/miriaamaral)
-* **Plataforma de Estudos (DIO):** [https://www.dio.me/sign-up?ref=6F1F401485F9459BA6AC879FEA95D1B5](https://www.dio.me/sign-up?ref=6F1F401485F9459BA6AC879FEA95D1B5)
-
-Vamos juntos construir o futuro da tecnologia! ✨
-
----
+<p align="center">Feito com ❤️ por Miriã Amaral</p>
