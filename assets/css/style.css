@@ -1,26 +1,94 @@
 /*
-  ----------- ENTENDI PORQUE ESTAVA QUEBRANDO - ARRUMEI O CSS PARA NÃO QUEBRAR O LAYOUT -----------
+  ----------- AULA MIRIÃ: ENTENDENDO O CSS PARA NÃO QUEBRAR O LAYOUT -----------
+  Análise e Personalização com base em UI e UX Design
+  Modo Claro/Escuro (Light/Dark Theme)
 */
+
+/* Variáveis CSS para facilitar a manutenção das cores */
+:root {
+    /* Cores do Tema Escuro (Padrão) */
+    --color-bg: #2C3437; /* Fundo principal */
+    --color-text: #DCEAF5; /* Texto principal */
+    --color-accent: #B18B77; /* Destaque */
+    --color-accent-hover: #9A776A; /* Destaque hover */
+    --color-card-bg: #3C4549; /* Fundo dos cards */
+    --color-header-bg: #2C3437; /* Fundo do cabeçalho */
+    --color-border-separator: #4A575A; /* Borda do rodapé */
+    --color-hero-overlay: rgba(44,52,55,0.6); /* Sobreposição da imagem do hero */
+
+    /* Filtros para ícones sociais no Tema Escuro (invertido para claro) */
+    --social-icon-filter: invert(80%) sepia(10%) saturate(150%) hue-rotate(180deg) brightness(120%) contrast(100%);
+    --social-icon-filter-hover: invert(90%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(140%) contrast(100%);
+
+    /* Transição suave para todas as propriedades de cor e fundo */
+    --transition-speed: 0.3s ease;
+}
+
+/* Definições para o Tema Claro (quando a classe 'light-theme' estiver no body) */
+body.light-theme {
+    /* Cores do Tema Claro */
+    --color-bg: #DCEAF5;
+    --color-text: #2C3437;
+    --color-accent: #B18B77; /* Mantém a cor de destaque */
+    --color-accent-hover: #9A776A;
+    --color-card-bg: #E9F3F9; /* Fundo dos cards no tema claro */
+    --color-header-bg: #DCEAF5;
+    --color-border-separator: #B1B1B1; /* Borda mais suave no tema claro */
+    --color-hero-overlay: rgba(220,234,245,0.7); /* Sobreposição clara para o hero */
+
+    /* Filtros para ícones sociais no Tema Claro (invertido para escuro, ou deixar padrão se já forem escuros) */
+    --social-icon-filter: none; /* Se seus ícones originais são escuros, "none" os mantém escuros */
+    --social-icon-filter-hover: brightness(0.8); /* Exemplo: escurecer um pouco no hover */
+}
+
 
 /* 1. RESET BÁSICO / BOX MODEL */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* ESSENCIAL PARA EVITAR QUEBRAS DE LAYOUT */
-    font-family: 'Inter', sans-serif; /* Nossa fonte linda! */
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed); /* Transição para todas as mudanças de tema */
 }
+
+/* Base para elementos interativos para acessibilidade (foco) */
+a, button {
+    outline: none;
+    text-decoration: none;
+}
+
+a:focus, button:focus {
+    box-shadow: 0 0 0 3px var(--color-accent);
+    border-radius: 5px;
+}
+
+.navbar a:focus {
+    box-shadow: 0 0 0 2px var(--color-accent);
+}
+
+.social-links a:focus {
+    box-shadow: 0 0 0 3px var(--color-accent);
+    border-radius: 50%;
+}
+
 
 /* 2. BODY GERAL - Estilos base para a página */
 body {
-    background-color: #2C3437; /* Fundo principal escuro - Nova cor: #2C3437 */
-    color: #DCEAF5; /* Texto principal claro - Nova cor: #DCEAF5 */
+    background-color: var(--color-bg);
+    color: var(--color-text);
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
+    line-height: 1.6;
 }
+
+h1, h2 {
+    font-weight: 700;
+}
+
 
 /* 3. HEADER - A parte de cima da página com logo e menu */
 .header-bg {
-    background-color: #2C3437; /* Cor de fundo do cabeçalho - Nova cor: #2C3437 */
+    background-color: var(--color-header-bg);
     padding: 20px 0;
     position: sticky;
     top: 0;
@@ -31,7 +99,7 @@ body {
 .header-content {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,6 +108,9 @@ body {
 .header-content .logo img {
     max-width: 120px;
     height: auto;
+    padding-right: 15px;
+    /* Filtrar logo se ele for escuro e precisar clarear no tema escuro, ou vice-versa */
+    /* Exemplo: filter: invert(100%); para um logo preto em fundo claro */
 }
 
 .navbar ul {
@@ -49,20 +120,67 @@ body {
 }
 
 .navbar a {
-    text-decoration: none;
-    color: #DCEAF5; /* Cor do texto do menu - Nova cor: #DCEAF5 */
-    font-weight: 700;
-    transition: color 0.3s ease;
+    color: var(--color-text);
+    font-weight: 600;
+    transition: color var(--transition-speed);
+    padding: 5px 0;
 }
 
 .navbar a:hover {
-    color: #B18B77; /* Cor dos links no hover - Nova cor: #B18B77 */
+    color: var(--color-accent);
 }
+
+/* Estilos para o alternador de tema (theme-toggle) */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--color-text); /* Cor do ícone */
+    transition: color var(--transition-speed), transform 0.2s ease;
+    padding: 5px; /* Aumenta a área de clique */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    color: var(--color-accent); /* Cor no hover */
+    transform: scale(1.1);
+}
+
+.theme-toggle i {
+    pointer-events: none; /* Garante que o clique vá para o botão, não para o ícone */
+}
+
+/* Transições para ícones de sol e lua */
+.theme-toggle .fa-sun, .theme-toggle .fa-moon {
+    transition: opacity var(--transition-speed), transform var(--transition-speed);
+    position: absolute; /* Para sobrepor os ícones */
+}
+
+body.light-theme .theme-toggle .fa-sun {
+    opacity: 0; /* Esconde o sol no modo claro */
+    transform: rotate(90deg);
+}
+
+body.dark-theme .theme-toggle .fa-moon {
+    opacity: 0; /* Esconde a lua no modo escuro */
+    transform: rotate(90deg);
+}
+
+/* Garante que o ícone visível tenha 1 de opacidade */
+.theme-toggle .fa-sun,
+body.light-theme .theme-toggle .fa-moon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
 
 /* 4. HERO SECTION - A primeira seção que chama atenção! */
 .hero-section {
-    /* Mantenho a sobreposição de cinza escuro, ajustando para a nova paleta e talvez um pouco mais clara */
-    background-image: linear-gradient(rgba(44,52,55,0.7), rgba(44,52,55,0.7)), url('../img/bg-hero.png'); 
+    background-image: linear-gradient(var(--color-hero-overlay), var(--color-hero-overlay)), url('../img/bg-hero.png'); 
     background-size: cover;
     background-position: center;
     height: calc(100vh - 80px);
@@ -78,235 +196,327 @@ body {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    color: #B18B77; /* Título do Hero - Nova cor: #B18B77 para destaque */
-    margin-bottom: 20px;
+    font-size: 4.2rem;
+    color: var(--color-accent);
+    margin-bottom: 25px;
     line-height: 1.2;
+    letter-spacing: -0.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .hero-content p {
-    font-size: 1.3rem;
-    color: #DCEAF5; /* Texto do Hero - Nova cor: #DCEAF5 */
+    font-size: 1.4rem;
+    color: var(--color-text);
     margin-bottom: 40px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .hero-content button {
-    background-color: #B18B77; /* Cor do botão - Nova cor: #B18B77 */
-    color: #2C3437; /* Texto do botão para contrastar - Nova cor: #2C3437 */
-    padding: 15px 30px;
+    background-color: var(--color-accent);
+    color: var(--color-dark); /* Texto do botão deve contrastar com a cor de destaque */
+    padding: 18px 35px;
     border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--transition-speed), transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hero-content button:hover {
-    background-color: #9A776A; /* Um tom ligeiramente mais escuro de #B18B77 para o hover */
-    transform: translateY(-3px);
+    background-color: var(--color-accent-hover);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* 5. ABOUT SECTION - Contando um pouco sobre mim */
 .about-section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .about-section h2 {
-    font-size: 2.5rem;
-    color: #B18B77; /* Título da seção - Nova cor: #B18B77 */
-    margin-bottom: 30px;
+    font-size: 3rem;
+    color: var(--color-accent);
+    margin-bottom: 40px;
 }
 
 .about-section img {
     max-width: 100%;
     height: auto;
     border-radius: 50%;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
-    margin-bottom: 30px;
-    border: 5px solid #B18B77; /* Borda da foto - Nova cor: #B18B77 */
-    box-shadow: 0 0 15px rgba(177, 139, 119, 0.4); /* Sombra da foto com a nova cor */
+    margin-bottom: 40px;
+    border: 6px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(177, 139, 119, 0.6);
 }
 
 .about-section p {
-    font-size: 1.1rem;
-    color: #DCEAF5; /* Texto da seção - Nova cor: #DCEAF5 */
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1.15rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    margin-bottom: 25px;
 }
+.about-section p:last-of-type {
+    margin-bottom: 0;
+}
+
 
 /* 6. PROJECTS SECTION - Minha vitrine de projetos! */
 .projects-section {
-    background-color: #2C3437; /* Fundo da seção de projetos - Nova cor: #2C3437 */
-    padding: 80px 20px;
+    background-color: var(--color-bg);
+    padding: 100px 20px;
     text-align: center;
 }
 
 .projects-section h2 {
-    font-size: 2.5rem;
-    color: #B18B77; /* Título da seção - Nova cor: #B18B77 */
-    margin-bottom: 50px;
+    font-size: 3rem;
+    color: var(--color-accent);
+    margin-bottom: 60px;
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: 35px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .project-card {
-    background-color: #3C4549; /* Fundo dos cards de projeto - Um tom um pouco mais claro que #2C3437 para contraste */
-    padding: 30px;
-    border-radius: 10px;
+    background-color: var(--color-card-bg);
+    padding: 35px;
+    border-radius: 12px;
     text-align: left;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
 .project-card h3 {
-    color: #DCEAF5; /* Título do card - Nova cor: #DCEAF5 */
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    color: var(--color-text);
+    font-size: 2rem;
+    margin-bottom: 18px;
+    font-weight: 700;
 }
 
 .project-card p {
-    color: #DCEAF5; /* Texto do card - Nova cor: #DCEAF5 */
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .project-card a {
-    color: #B18B77; /* Link do card - Nova cor: #B18B77 */
+    color: var(--color-accent);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    display: inline-block;
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--color-accent);
+    transition: color var(--transition-speed), border-bottom var(--transition-speed);
 }
 
 .project-card a:hover {
-    text-decoration: underline;
+    color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
 }
+
 
 /* 7. CONTACT SECTION - Pra gente se conectar! */
 .contact-section {
-    padding: 80px 20px;
+    padding: 100px 20px;
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
 }
 
 .contact-section h2 {
-    font-size: 2.5rem;
-    color: #B18B77; /* Título da seção - Nova cor: #B18B77 */
-    margin-bottom: 30px;
+    font-size: 3rem;
+    color: var(--color-accent);
+    margin-bottom: 40px;
 }
 
 .contact-section p {
-    font-size: 1.1rem;
-    color: #DCEAF5; /* Texto da seção - Nova cor: #DCEAF5 */
-    margin-bottom: 40px;
-    line-height: 1.6;
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin-bottom: 50px;
+    line-height: 1.7;
 }
 
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
 }
 
 .social-links a img {
-    /* Considere ajustar a cor dos ícones sociais ou aplicar um filtro CSS se eles não combinarem */
-    filter: invert(90%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(120%) contrast(100%); /* Exemplo para clarear ícones escuros */
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s ease;
+    width: 55px;
+    height: 55px;
+    transition: transform 0.3s ease, filter var(--transition-speed);
+    filter: var(--social-icon-filter); /* Aplica o filtro da variável CSS */
 }
 
 .social-links a img:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    filter: var(--social-icon-filter-hover); /* Aplica o filtro de hover da variável CSS */
 }
+
 
 /* 8. FOOTER - Nosso cantinho no final da página */
 footer {
-    background-color: #2C3437; /* Fundo do rodapé - Nova cor: #2C3437 */
-    padding: 30px 20px;
+    background-color: var(--color-header-bg); /* Usa a mesma cor do header para consistência */
+    padding: 40px 20px;
     text-align: center;
-    border-top: 1px solid #4A575A; /* Uma linha fininha para separar, usando um tom um pouco mais claro do escuro */
-    font-size: 0.9rem;
-    color: #DCEAF5; /* Texto do rodapé - Nova cor: #DCEAF5 */
+    border-top: 1px solid var(--color-border-separator);
+    font-size: 0.95rem;
+    color: var(--color-text);
 }
 
 footer a {
-    color: #B18B77; /* Links no rodapé - Nova cor: #B18B77 */
+    color: var(--color-accent);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;
+    transition: color var(--transition-speed);
 }
 
 footer a:hover {
+    color: var(--color-accent-hover);
     text-decoration: underline;
 }
 
-/* 9. RESPONSIVIDADE - Pra página ficar linda em qualquer tela! */
-/* Para telas de tablet e celulares um pouco maiores */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 3rem;
-    }
 
+/* 9. RESPONSIVIDADE - Pra página ficar linda em qualquer tela! */
+@media (max-width: 768px) {
+    .header-content {
+        padding: 0 20px;
+    }
+    .hero-content h1 {
+        font-size: 3.2rem;
+        margin-bottom: 20px;
+    }
     .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+    .hero-content button {
+        padding: 15px 30px;
         font-size: 1.1rem;
     }
-
     .navbar ul {
-        gap: 15px;
+        gap: 20px;
     }
-
     .navbar a {
         font-size: 0.9rem;
     }
-
+    .about-section h2,
+    .projects-section h2,
+    .contact-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+    .about-section img {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 30px;
+    }
+    .about-section p,
+    .contact-section p {
+        font-size: 1.05rem;
+    }
     .projects-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
-
     .project-card {
-        padding: 20px;
+        padding: 25px;
     }
-
     .project-card h3 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+    }
+    .project-card p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .social-links a img {
+        width: 45px;
+        height: 45px;
+    }
+    footer {
+        padding: 30px 20px;
     }
 
-    .about-section img {
-        width: 150px;
-        height: 150px;
+    /* Ajustes específicos para o theme-toggle em telas menores */
+    .theme-toggle {
+        font-size: 1.3rem; /* Ícone um pouco menor */
+        position: relative; /* Para garantir que fique visível */
+        right: auto;
+        top: auto;
+    }
+    .header-content { /* Ajusta o layout do header para acomodar o botão */
+        display: grid;
+        grid-template-columns: 1fr auto; /* Logo e toggle de um lado, navbar embaixo */
+        grid-template-rows: auto auto;
+        align-items: center;
+        gap: 15px;
+    }
+    .header-content .logo {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+    .navbar {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+        width: 100%; /* Ocupa a largura total */
+    }
+    .navbar ul {
+        justify-content: center; /* Centraliza os itens do menu */
+    }
+    #theme-toggle {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
     }
 }
 
-/* Para celulares pequenos */
+
 @media (max-width: 480px) {
     .header-content {
         flex-direction: column;
         gap: 15px;
+        grid-template-columns: 1fr auto; /* Volta para grid para alinhar logo e toggle */
+        grid-template-rows: auto auto;
+    }
+    .header-content .logo {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        padding-right: 0;
+    }
+    .navbar {
+        grid-column: 1 / 3;
+        grid-row: 2 / 3;
+    }
+    #theme-toggle {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
     }
 
     .navbar ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
+        letter-spacing: normal;
     }
 
     .hero-content p {
@@ -322,5 +532,13 @@ footer a:hover {
     .projects-section h2,
     .contact-section h2 {
         font-size: 2rem;
+    }
+    .about-section img {
+        width: 140px;
+        height: 140px;
+    }
+    .social-links a img {
+        width: 40px;
+        height: 40px;
     }
 }
