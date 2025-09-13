@@ -1,4 +1,4 @@
-# 🚀 Desafio Landing Page: HTML & CSS Essencial para um Frontend Incrível! ✨
+# 🚀 Desafio Landing Page: HTML & CSS Essencial para um Front-End! 
 
 [![GitHub last commit](https://img.shields.io/github/last-commit/miriaamaral/desafio-minha-landing-page)](https://github.com/miriaamaral/desafio-minha-landing-page/commits/main)
 [![GitHub contributors](https://img.shields.io/github/contributors/miriaamaral/desafio-minha-landing-page)](https://github.com/miriaamaral/desafio-minha-landing-page/graphs/contributors)
