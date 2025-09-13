@@ -1,70 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DIO | Miriã Amaral Landing Page</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  </head>
-  <body oncontextmenu="return false;">
-    <div id="interface">
-      <img id="icone" src="./img/banner-miria.png" />
-      <header class="banner">
-        <div>
-          <figure class="legenda-imagem">
-            <img src="./img/logo-css-developer-miria.png" />
-            <figcaption>
-              <h3>Trilha tríade - DIO</h3>
-              <p id="logo">
-                <br />Landing Page - HTML/CSS, by: <br />
-                <br /><strong>MIRIÃ AMARAL!</strong>
-              </p>
-            </figcaption>
-          </figure>
-          <h1>Miriã Amaral Custódio Santos</h1>
-          <p id="paraum">
-            Design que inspira, experiências que conectam.
-          </p>
-          <button>Ver mais!</button>
-        </div>
-      </header>
-      <main id="main">
-        <section id="course-content">
-          <h2>SOBRE MIM?</h2>
-          <p id="paradois">
-            Olá! Sou Miriã Amaral, uma pessoa apaixonada por tecnologia, design e inovação.
-          </p>
-          <div class="modules-list">
-            <div class="module">
-              <span>Olá! Eu sou a futura sensação do desenvolvimento web e design UI/UX!
-                Sou uma mente curiosa, um coração criativo e uma apaixonada por tecnologia e design. Estou aqui para aprender, criar e transformar ideias em realidade!</span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miriã Amaral - Desenvolvedora Front-End</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header class="header-bg">
+        <div class="header-content">
+            <div class="logo">
+                <img src="./assets/img/logo-miria.png.png" alt="Logotipo Miriã Amaral">
             </div>
-            
-            <div class="module">
-              <span>Atualmente, estou cursando Análise e Desenvolvimento de Sistemas e também o Curso de Front-End, buscando aprimorar minhas habilidades em desenvolvimento web e design.</span>
-            </div>
-          </div>
-        </section>
-        <section id="transform-world">
-          <p>INOVANDO COM DESIGN E TECNOLOGIA</p>
-        </section>
-        <section id="professional-challenges">
-          <h2>Design que inspira, experiências que conectam</h2>
-          <br><br><br><br><br><br><br><br><br><br><br><br>
-          <p>"O design é não apenas o que parece e sente, mas também como funciona." - Steve Jobs</p>
-        </section>
-      </main>
-      <footer>
-        <div class="dio-logo">
-          <img src="./img/dio-logo-miria.png" />
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Sobre Mim</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
         </div>
-        <p>Essa Landing Page foi criada para me desafiar. Acesse <a href="https://dio.me">dio.me</a> e venha estudar e crescer junto comigo!</p>
-        <p id="direitos">
-          Copyright &copy; 2024 - by Miriã Amaral -
-          <a href="https://www.linkedin.com/in/miri%C3%A3-amaral-cust%C3%B3dio/">LinkedIn</a>
-        </p>
-      </footer>
-    </div>
-  </body>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Olá, sou a Miriã!</h1>
+                <p>Construo experiências digitais incríveis com código e criatividade. ✨</p>
+                <button onclick="location.href='#projects'">Meus Projetos</button>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2>Sobre Mim</h2>
+            <img src="./assets/img/profile-miria.jpg.jpeg" alt="Foto de perfil de Miriã Amaral">
+            <p>
+                Oi! Eu sou a Miriã Amaral, estudante de Análise e Desenvolvimento de Sistemas e
+                apaixonada por transformar ideias em interfaces web que encantam! ✨ Minha jornada na tecnologia
+                começou com a curiosidade e se transformou em uma paixão por criar e resolver problemas
+                com código.
+            </p>
+            <p>
+                No meu dia a dia, eu mergulho no universo do Front-End, explorando tecnologias como **HTML, CSS, JavaScript e Angular**.
+                Adoro a dinâmica de aprender algo novo a cada dia e de me desafiar para ir além.
+                Meu foco é construir sites e aplicações que não só funcionem perfeitamente, mas que também
+                ofereçam uma experiência de usuário (UX) intuitiva e um design (UI) bonito e acessível.
+            </p>
+            <p>
+                Se você busca alguém proativa, que adora compartilhar conhecimentos e que está sempre em busca
+                de inovar, você me encontrou! 😉
+            </p>
+        </section>
+
+        <section id="projects" class="projects-section">
+            <h2>Meus Projetos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Blog em Angular</h3>
+                    <p>Um blog desenvolvido com Angular e TypeScript, explorando conceitos de SPA e componentes reusáveis.</p>
+                    <a href="https://github.com/miriaamaral/angular-blog" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Jogo Detona Ralph</h3>
+                    <p>Um jogo clássico de "acerte o alvo" feito com JavaScript puro, HTML e CSS, focado em lógica de jogo e interatividade.</p>
+                    <a href="https://github.com/miriaamaral/JS-Jogo-Detona-Ralph" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Pokedex JS</h3>
+                    <p>Uma aplicação web que consome a API do Pokémon para exibir informações detalhadas sobre os personagens, desenvolvida com JavaScript.</p>
+                    <a href="https://github.com/miriaamaral/JS-Pokedex" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Landing Page Homem-Aranha</h3>
+                    <p>Uma landing page temática do Homem-Aranha, explorando design responsivo e animações com HTML e CSS.</p>
+                    <a href="https://github.com/miriaamaral/Landing-Page-Multiverso-Homem-Aranha" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Jogo da Memória JS</h3>
+                    <p>Um jogo da memória interativo construído com JavaScript puro, focado em manipulação do DOM e lógica de pareamento.</p>
+                    <a href="https://github.com/miriaamaral/JS-Jogo-da-Memoria" target="_blank">Ver Projeto</a>
+                </div>
+                <div class="project-card">
+                    <h3>Estudos de Git e GitHub</h3>
+                    <p>Um repositório dedicado aos meus estudos e anotações sobre controle de versão com Git e o uso do GitHub.</p>
+                    <a href="https://github.com/miriaamaral/study-git-github" target="_blank">Ver Projeto</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Vamos Criar Algo Incrível Juntos?</h2>
+            <p>
+                Se você curtiu meu trabalho, tem alguma ideia ou quer bater um papo sobre tecnologia,
+                me chama! Adoro trocar experiências e construir coisas novas.
+            </p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/miriaamaralcs" target="_blank">
+                    <img src="./assets/img/linkedin-icon.png" alt="LinkedIn">
+                </a>
+                <a href="https://github.com/miriaamaral" target="_blank">
+                    <img src="./assets/img/github-icon.png" alt="GitHub">
+                </a>
+                <a href="mailto:miriaamaralcs@gmail.com">
+                    <img src="./assets/img/email-icon.png" alt="Email">
+                </a>
+                <a href="https://discord.com/channels/miriaamaralcustodiosantos" target="_blank">
+                    <img src="./assets/img/discord-icon.png" alt="Discord">
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Miriã Amaral - Todos os direitos reservados.</p>
+    </footer>
+</body>
 </html>

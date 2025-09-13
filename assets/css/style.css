@@ -1,0 +1,327 @@
+/*
+  ----------- ENTENDI PORQUE ESTAVA QUEBRANDO - ARRUMEI O CSS PARA NÃO QUEBRAR O LAYOUT -----------
+*/
+
+/* 1. RESET BÁSICO / BOX MODEL
+   Por que? Para garantir que todos os navegadores comecem do mesmo ponto, removendo estilos padrão chatos.
+   E o box-sizing: border-box? É um salva-vidas! Ele faz com que a largura e altura de um elemento incluam
+   padding (espaçamento interno) e border (borda), evitando que elementos cresçam de forma inesperada.
+   Sem ele, adicionar padding ou border aumenta o tamanho total do elemento, o que "quebra" layouts.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* ESSENCIAL PARA EVITAR QUEBRAS DE LAYOUT */
+    font-family: 'Inter', sans-serif; /* Nossa fonte linda! */
+}
+
+/* 2. BODY GERAL - Estilos base para a página
+   Por que? Define a cor de fundo, cor do texto e um comportamento de scroll suave.
+*/
+body {
+    background-color: #232323; /* Fundo escurinho e elegante */
+    color: #f7f7f7; /* Texto clarinho pra contrastar */
+    -webkit-font-smoothing: antialiased; /* Pra fonte ficar lisinha, lisinha! */
+    scroll-behavior: smooth; /* Rolagem suave ao clicar em links internos */
+}
+
+/* 3. HEADER - A parte de cima da página com logo e menu */
+.header-bg {
+    background-color: #333333; /* Um cinza escuro para o cabeçalho */
+    padding: 20px 0; /* Espaçamento em cima e embaixo */
+    position: sticky; /* Fixa o header no topo ao rolar */
+    top: 0; /* Fica colado no topo */
+    z-index: 1000; /* Garante que ele fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Uma sombra leve pra dar profundidade */
+}
+
+.header-content {
+    max-width: 1200px; /* Limita a largura do conteúdo para telas grandes */
+    margin: 0 auto; /* Centraliza o conteúdo do cabeçalho */
+    padding: 0 20px; /* Espaçamento nas laterais */
+    display: flex; /* Pra colocar o logo e o menu lado a lado */
+    justify-content: space-between; /* Espaço entre o logo e o menu */
+    align-items: center; /* Alinha eles no centro vertical */
+}
+
+.header-content .logo img {
+    max-width: 120px; /* Tamanho máximo pro nosso logo lindo */
+    height: auto; /* Mantém a proporção */
+}
+
+.navbar ul {
+    list-style: none; /* Tira as bolinhas da lista */
+    display: flex; /* Pra colocar os itens do menu lado a lado */
+    gap: 30px; /* Espaçamento entre os itens do menu */
+}
+
+.navbar a {
+    text-decoration: none; /* Tira o sublinhado dos links */
+    color: #f7f7f7; /* Cor do texto do menu */
+    font-weight: 700; /* Negrito */
+    transition: color 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.navbar a:hover {
+    color: #FF0066; /* Rosa no hover, a cara do Código Rosa! */
+}
+
+/* 4. HERO SECTION - A primeira seção que chama atenção! */
+.hero-section {
+    /* *** AQUI ESTÁ O AJUSTE DA OPACIDADE! *** */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/bg-hero.png'); /* Ajustado para 0.5 */
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 80px); /* Ocupa a altura da tela menos a altura do header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: #FF0066; /* Nosso rosa especial */
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.hero-content button {
+    background-color: #FF0066;
+    color: #f7f7f7;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero-content button:hover {
+    background-color: #d10055;
+    transform: translateY(-3px); /* Efeito de "levantar" no hover */
+}
+
+/* 5. ABOUT SECTION - Contando um pouco sobre mim */
+.about-section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-section h2 {
+    font-size: 2.5rem;
+    color: #FF0066;
+    margin-bottom: 30px;
+}
+
+.about-section img {
+    max-width: 100%; /* Imagem sempre se encaixa no espaço! */
+    height: auto;
+    border-radius: 50%; /* Foto redonda, que chique! */
+    width: 200px; /* Tamanho fixo para a foto */
+    height: 200px; /* Tamanho fixo para a foto */
+    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+    margin-bottom: 30px;
+    border: 5px solid #FF0066; /* Borda rosa! */
+    box-shadow: 0 0 15px rgba(255, 0, 102, 0.4); /* Brilho rosa! */
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* 6. PROJECTS SECTION - Minha vitrine de projetos! */
+.projects-section {
+    background-color: #1a1a1a;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    color: #FF0066;
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid; /* Aqui usei Grid pra organizar os projetos! */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 ou 3 projetos por linha, dependendo da tela */
+    gap: 30px; /* Espaço entre os projetos */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.project-card h3 {
+    color: #f7f7f7;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.project-card a {
+    color: #FF0066;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-card a:hover {
+    text-decoration: underline;
+}
+
+/* 7. CONTACT SECTION - Pra gente se conectar! */
+.contact-section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    color: #FF0066;
+    margin-bottom: 30px;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Espaçamento entre os ícones */
+}
+
+.social-links a img {
+    width: 50px; /* Tamanho dos ícones sociais */
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.social-links a img:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" no hover */
+}
+
+/* 8. FOOTER - Nosso cantinho no final da página */
+footer {
+    background-color: #333333;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid #444; /* Uma linha fininha pra separar */
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+footer a {
+    color: #FF0066;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* 9. RESPONSIVIDADE - Pra página ficar linda em qualquer tela! */
+/* Para telas de tablet e celulares um pouco maiores */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem; /* Título do hero menor */
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .navbar ul {
+        gap: 15px; /* Diminui o espaço entre os itens do menu */
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr; /* Em telas menores, um projeto por linha */
+    }
+
+    .project-card {
+        padding: 20px;
+    }
+
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .about-section img {
+        width: 150px; /* Foto menor no mobile */
+        height: 150px;
+    }
+}
+
+/* Para celulares pequenos */
+@media (max-width: 480px) {
+    .header-content {
+        flex-direction: column; /* Header empilha logo e menu */
+        gap: 15px;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap; /* Menu pode quebrar linha */
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem; /* Título do hero ainda menor */
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero-content button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .about-section h2,
+    .projects-section h2,
+    .contact-section h2 {
+        font-size: 2rem; /* Títulos menores */
+    }
+}
