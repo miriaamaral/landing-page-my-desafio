@@ -2,12 +2,7 @@
   ----------- ENTENDI PORQUE ESTAVA QUEBRANDO - ARRUMEI O CSS PARA NÃO QUEBRAR O LAYOUT -----------
 */
 
-/* 1. RESET BÁSICO / BOX MODEL
-   Por que? Para garantir que todos os navegadores comecem do mesmo ponto, removendo estilos padrão chatos.
-   E o box-sizing: border-box? É um salva-vidas! Ele faz com que a largura e altura de um elemento incluam
-   padding (espaçamento interno) e border (borda), evitando que elementos cresçam de forma inesperada.
-   Sem ele, adicionar padding ou border aumenta o tamanho total do elemento, o que "quebra" layouts.
-*/
+/* 1. RESET BÁSICO / BOX MODEL */
 * {
     margin: 0;
     padding: 0;
@@ -15,64 +10,62 @@
     font-family: 'Inter', sans-serif; /* Nossa fonte linda! */
 }
 
-/* 2. BODY GERAL - Estilos base para a página
-   Por que? Define a cor de fundo, cor do texto e um comportamento de scroll suave.
-*/
+/* 2. BODY GERAL - Estilos base para a página */
 body {
-    background-color: #232323; /* Fundo escurinho e elegante */
-    color: #f7f7f7; /* Texto clarinho pra contrastar */
-    -webkit-font-smoothing: antialiased; /* Pra fonte ficar lisinha, lisinha! */
-    scroll-behavior: smooth; /* Rolagem suave ao clicar em links internos */
+    background-color: #2C3437; /* Fundo principal escuro - Nova cor: #2C3437 */
+    color: #DCEAF5; /* Texto principal claro - Nova cor: #DCEAF5 */
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
 }
 
 /* 3. HEADER - A parte de cima da página com logo e menu */
 .header-bg {
-    background-color: #333333; /* Um cinza escuro para o cabeçalho */
-    padding: 20px 0; /* Espaçamento em cima e embaixo */
-    position: sticky; /* Fixa o header no topo ao rolar */
-    top: 0; /* Fica colado no topo */
-    z-index: 1000; /* Garante que ele fique acima de outros elementos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Uma sombra leve pra dar profundidade */
+    background-color: #2C3437; /* Cor de fundo do cabeçalho - Nova cor: #2C3437 */
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .header-content {
-    max-width: 1200px; /* Limita a largura do conteúdo para telas grandes */
-    margin: 0 auto; /* Centraliza o conteúdo do cabeçalho */
-    padding: 0 20px; /* Espaçamento nas laterais */
-    display: flex; /* Pra colocar o logo e o menu lado a lado */
-    justify-content: space-between; /* Espaço entre o logo e o menu */
-    align-items: center; /* Alinha eles no centro vertical */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-content .logo img {
-    max-width: 120px; /* Tamanho máximo pro nosso logo lindo */
-    height: auto; /* Mantém a proporção */
+    max-width: 120px;
+    height: auto;
 }
 
 .navbar ul {
-    list-style: none; /* Tira as bolinhas da lista */
-    display: flex; /* Pra colocar os itens do menu lado a lado */
-    gap: 30px; /* Espaçamento entre os itens do menu */
+    list-style: none;
+    display: flex;
+    gap: 30px;
 }
 
 .navbar a {
-    text-decoration: none; /* Tira o sublinhado dos links */
-    color: #f7f7f7; /* Cor do texto do menu */
-    font-weight: 700; /* Negrito */
-    transition: color 0.3s ease; /* Efeito suave ao passar o mouse */
+    text-decoration: none;
+    color: #DCEAF5; /* Cor do texto do menu - Nova cor: #DCEAF5 */
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-    color: #FF0066; /* Rosa no hover, a cara do Código Rosa! */
+    color: #B18B77; /* Cor dos links no hover - Nova cor: #B18B77 */
 }
 
 /* 4. HERO SECTION - A primeira seção que chama atenção! */
 .hero-section {
-    /* *** AQUI ESTÁ O AJUSTE DA OPACIDADE! *** */
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/img/bg-hero.png'); /* Ajustado para 0.5 */
+    /* Mantenho a sobreposição de cinza escuro, ajustando para a nova paleta e talvez um pouco mais clara */
+    background-image: linear-gradient(rgba(44,52,55,0.7), rgba(44,52,55,0.7)), url('../img/bg-hero.png'); 
     background-size: cover;
     background-position: center;
-    height: calc(100vh - 80px); /* Ocupa a altura da tela menos a altura do header */
+    height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,20 +79,21 @@ body {
 
 .hero-content h1 {
     font-size: 4rem;
-    color: #FF0066; /* Nosso rosa especial */
+    color: #B18B77; /* Título do Hero - Nova cor: #B18B77 para destaque */
     margin-bottom: 20px;
     line-height: 1.2;
 }
 
 .hero-content p {
     font-size: 1.3rem;
+    color: #DCEAF5; /* Texto do Hero - Nova cor: #DCEAF5 */
     margin-bottom: 40px;
     line-height: 1.5;
 }
 
 .hero-content button {
-    background-color: #FF0066;
-    color: #f7f7f7;
+    background-color: #B18B77; /* Cor do botão - Nova cor: #B18B77 */
+    color: #2C3437; /* Texto do botão para contrastar - Nova cor: #2C3437 */
     padding: 15px 30px;
     border: none;
     border-radius: 5px;
@@ -109,8 +103,8 @@ body {
 }
 
 .hero-content button:hover {
-    background-color: #d10055;
-    transform: translateY(-3px); /* Efeito de "levantar" no hover */
+    background-color: #9A776A; /* Um tom ligeiramente mais escuro de #B18B77 para o hover */
+    transform: translateY(-3px);
 }
 
 /* 5. ABOUT SECTION - Contando um pouco sobre mim */
@@ -123,51 +117,52 @@ body {
 
 .about-section h2 {
     font-size: 2.5rem;
-    color: #FF0066;
+    color: #B18B77; /* Título da seção - Nova cor: #B18B77 */
     margin-bottom: 30px;
 }
 
 .about-section img {
-    max-width: 100%; /* Imagem sempre se encaixa no espaço! */
+    max-width: 100%;
     height: auto;
-    border-radius: 50%; /* Foto redonda, que chique! */
-    width: 200px; /* Tamanho fixo para a foto */
-    height: 200px; /* Tamanho fixo para a foto */
-    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorcer */
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     margin-bottom: 30px;
-    border: 5px solid #FF0066; /* Borda rosa! */
-    box-shadow: 0 0 15px rgba(255, 0, 102, 0.4); /* Brilho rosa! */
+    border: 5px solid #B18B77; /* Borda da foto - Nova cor: #B18B77 */
+    box-shadow: 0 0 15px rgba(177, 139, 119, 0.4); /* Sombra da foto com a nova cor */
 }
 
 .about-section p {
     font-size: 1.1rem;
+    color: #DCEAF5; /* Texto da seção - Nova cor: #DCEAF5 */
     line-height: 1.6;
     margin-bottom: 20px;
 }
 
 /* 6. PROJECTS SECTION - Minha vitrine de projetos! */
 .projects-section {
-    background-color: #1a1a1a;
+    background-color: #2C3437; /* Fundo da seção de projetos - Nova cor: #2C3437 */
     padding: 80px 20px;
     text-align: center;
 }
 
 .projects-section h2 {
     font-size: 2.5rem;
-    color: #FF0066;
+    color: #B18B77; /* Título da seção - Nova cor: #B18B77 */
     margin-bottom: 50px;
 }
 
 .projects-grid {
-    display: grid; /* Aqui usei Grid pra organizar os projetos! */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 ou 3 projetos por linha, dependendo da tela */
-    gap: 30px; /* Espaço entre os projetos */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .project-card {
-    background-color: #2a2a2a;
+    background-color: #3C4549; /* Fundo dos cards de projeto - Um tom um pouco mais claro que #2C3437 para contraste */
     padding: 30px;
     border-radius: 10px;
     text-align: left;
@@ -180,19 +175,20 @@ body {
 }
 
 .project-card h3 {
-    color: #f7f7f7;
+    color: #DCEAF5; /* Título do card - Nova cor: #DCEAF5 */
     font-size: 1.8rem;
     margin-bottom: 15px;
 }
 
 .project-card p {
+    color: #DCEAF5; /* Texto do card - Nova cor: #DCEAF5 */
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 20px;
 }
 
 .project-card a {
-    color: #FF0066;
+    color: #B18B77; /* Link do card - Nova cor: #B18B77 */
     text-decoration: none;
     font-weight: bold;
 }
@@ -211,12 +207,13 @@ body {
 
 .contact-section h2 {
     font-size: 2.5rem;
-    color: #FF0066;
+    color: #B18B77; /* Título da seção - Nova cor: #B18B77 */
     margin-bottom: 30px;
 }
 
 .contact-section p {
     font-size: 1.1rem;
+    color: #DCEAF5; /* Texto da seção - Nova cor: #DCEAF5 */
     margin-bottom: 40px;
     line-height: 1.6;
 }
@@ -224,31 +221,33 @@ body {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 25px; /* Espaçamento entre os ícones */
+    gap: 25px;
 }
 
 .social-links a img {
-    width: 50px; /* Tamanho dos ícones sociais */
+    /* Considere ajustar a cor dos ícones sociais ou aplicar um filtro CSS se eles não combinarem */
+    filter: invert(90%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(120%) contrast(100%); /* Exemplo para clarear ícones escuros */
+    width: 50px;
     height: 50px;
     transition: transform 0.3s ease;
 }
 
 .social-links a img:hover {
-    transform: translateY(-5px); /* Efeito de "levantar" no hover */
+    transform: translateY(-5px);
 }
 
 /* 8. FOOTER - Nosso cantinho no final da página */
 footer {
-    background-color: #333333;
+    background-color: #2C3437; /* Fundo do rodapé - Nova cor: #2C3437 */
     padding: 30px 20px;
     text-align: center;
-    border-top: 1px solid #444; /* Uma linha fininha pra separar */
+    border-top: 1px solid #4A575A; /* Uma linha fininha para separar, usando um tom um pouco mais claro do escuro */
     font-size: 0.9rem;
-    color: #cccccc;
+    color: #DCEAF5; /* Texto do rodapé - Nova cor: #DCEAF5 */
 }
 
 footer a {
-    color: #FF0066;
+    color: #B18B77; /* Links no rodapé - Nova cor: #B18B77 */
     text-decoration: none;
     font-weight: bold;
 }
@@ -261,7 +260,7 @@ footer a:hover {
 /* Para telas de tablet e celulares um pouco maiores */
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 3rem; /* Título do hero menor */
+        font-size: 3rem;
     }
 
     .hero-content p {
@@ -269,7 +268,7 @@ footer a:hover {
     }
 
     .navbar ul {
-        gap: 15px; /* Diminui o espaço entre os itens do menu */
+        gap: 15px;
     }
 
     .navbar a {
@@ -277,7 +276,7 @@ footer a:hover {
     }
 
     .projects-grid {
-        grid-template-columns: 1fr; /* Em telas menores, um projeto por linha */
+        grid-template-columns: 1fr;
     }
 
     .project-card {
@@ -289,7 +288,7 @@ footer a:hover {
     }
 
     .about-section img {
-        width: 150px; /* Foto menor no mobile */
+        width: 150px;
         height: 150px;
     }
 }
@@ -297,17 +296,17 @@ footer a:hover {
 /* Para celulares pequenos */
 @media (max-width: 480px) {
     .header-content {
-        flex-direction: column; /* Header empilha logo e menu */
+        flex-direction: column;
         gap: 15px;
     }
 
     .navbar ul {
-        flex-wrap: wrap; /* Menu pode quebrar linha */
+        flex-wrap: wrap;
         justify-content: center;
     }
 
     .hero-content h1 {
-        font-size: 2.2rem; /* Título do hero ainda menor */
+        font-size: 2.2rem;
     }
 
     .hero-content p {
@@ -322,6 +321,6 @@ footer a:hover {
     .about-section h2,
     .projects-section h2,
     .contact-section h2 {
-        font-size: 2rem; /* Títulos menores */
+        font-size: 2rem;
     }
 }
