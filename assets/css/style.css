@@ -1,5 +1,5 @@
 /*
-  ----------- AULA MIRIÃ: ENTENDENDO O CSS PARA NÃO QUEBRAR O LAYOUT -----------
+  ----------- ENTENDENDO O CSS PARA NÃO QUEBRAR O LAYOUT -----------
   Análise e Personalização com base em UI e UX Design
   Modo Claro/Escuro (Light/Dark Theme)
 */
@@ -11,10 +11,14 @@
     --color-text: #DCEAF5; /* Texto principal */
     --color-accent: #B18B77; /* Destaque */
     --color-accent-hover: #9A776A; /* Destaque hover */
-    --color-card-bg: #3C4549; /* Fundo dos cards */
+    --color-card-bg: #3C4549; /* Fundo dos cards (fallback para quando não houver imagem) */
     --color-header-bg: #2C3437; /* Fundo do cabeçalho */
     --color-border-separator: #4A575A; /* Borda do rodapé */
     --color-hero-overlay: rgba(44,52,55,0.6); /* Sobreposição da imagem do hero */
+    --color-card-overlay: rgba(0, 0, 0, 0.7); /* Overlay escuro para cards */
+    --color-card-overlay-hover: rgba(0, 0, 0, 0.4); /* Overlay mais claro no hover */
+    --color-card-text-light: #F0F8FF; /* Texto claro para cards com background de imagem */
+
 
     /* Filtros para ícones sociais no Tema Escuro (invertido para claro) */
     --social-icon-filter: invert(80%) sepia(10%) saturate(150%) hue-rotate(180deg) brightness(120%) contrast(100%);
@@ -31,10 +35,13 @@ body.light-theme {
     --color-text: #2C3437;
     --color-accent: #B18B77; /* Mantém a cor de destaque */
     --color-accent-hover: #9A776A;
-    --color-card-bg: #E9F3F9; /* Fundo dos cards no tema claro */
+    --color-card-bg: #E9F3F9; /* Fundo dos cards no tema claro (fallback) */
     --color-header-bg: #DCEAF5;
     --color-border-separator: #B1B1B1; /* Borda mais suave no tema claro */
     --color-hero-overlay: rgba(220,234,245,0.7); /* Sobreposição clara para o hero */
+    --color-card-overlay: rgba(255, 255, 255, 0.8); /* Overlay claro para cards */
+    --color-card-overlay-hover: rgba(255, 255, 255, 0.5); /* Overlay mais transparente no hover */
+    --color-card-text-light: #2C3437; /* Texto escuro para cards com background de imagem */
 
     /* Filtros para ícones sociais no Tema Claro (invertido para escuro, ou deixar padrão se já forem escuros) */
     --social-icon-filter: none; /* Se seus ícones originais são escuros, "none" os mantém escuros */
@@ -288,12 +295,21 @@ body.light-theme .theme-toggle .fa-moon {
 }
 
 .project-card {
-    background-color: var(--color-card-bg);
-    padding: 35px;
+    position: relative; /* Para posicionar o overlay e o conteúdo */
+    height: 250px; /* Altura fixa para os cards, para a imagem preencher */
     border-radius: 12px;
-    text-align: left;
+    overflow: hidden; /* Garante que a imagem não vaze */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+
+    /* Estilos da imagem de fundo */
+    background-color: var(--color-card-bg); /* Fallback */
+    background-size: cover;
+    background-position: center;
+    display: flex; /* Para centralizar o card-content */
+    align-items: center;
+    justify-content: center;
+    text-align: left; /* Restaura o alinhamento do texto */
 }
 
 .project-card:hover {
@@ -301,21 +317,52 @@ body.light-theme .theme-toggle .fa-moon {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
-.project-card h3 {
-    color: var(--color-text);
+/* Overlay para escurecer a imagem e melhorar a leitura do texto */
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-card-overlay); /* Cor do overlay do tema atual */
+    transition: background-color var(--transition-speed);
+    z-index: 1; /* Acima da imagem, abaixo do conteúdo */
+}
+
+.project-card:hover .card-overlay {
+    background-color: var(--color-card-overlay-hover); /* Overlay mais suave no hover */
+}
+
+.card-content {
+    position: relative; /* Para ficar acima do overlay */
+    z-index: 2;
+    padding: 25px; /* Padding interno */
+    color: var(--color-card-text-light); /* Texto claro para contraste com a imagem */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaço entre título, p e link */
+    height: 100%; /* Ocupa toda a altura do card */
+}
+
+.card-content h3 {
+    color: var(--color-card-text-light); /* Garante que o título seja claro */
     font-size: 2rem;
-    margin-bottom: 18px;
+    margin-bottom: 10px; /* Reduz margem para caber mais texto */
     font-weight: 700;
 }
 
-.project-card p {
-    color: var(--color-text);
+.card-content p {
+    color: var(--color-card-text-light); /* Garante que o parágrafo seja claro */
     font-size: 1.05rem;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-bottom: 15px; /* Reduz margem */
+    /* Adicionar um max-height e overflow para controlar o texto em cards menores */
+    max-height: 100px; /* Altura máxima para o texto do parágrafo */
+    overflow: hidden; /* Esconde texto que ultrapassa */
+    text-overflow: ellipsis; /* Adiciona "..." se o texto for cortado */
 }
 
-.project-card a {
+.card-content a {
     color: var(--color-accent);
     text-decoration: none;
     font-weight: 700;
@@ -325,7 +372,7 @@ body.light-theme .theme-toggle .fa-moon {
     transition: color var(--transition-speed), border-bottom var(--transition-speed);
 }
 
-.project-card a:hover {
+.card-content a:hover {
     color: var(--color-accent-hover);
     border-color: var(--color-accent-hover);
 }
@@ -437,14 +484,19 @@ footer a:hover {
         gap: 25px;
     }
     .project-card {
-        padding: 25px;
+        padding: 0; /* Remove padding do card pai, agora o padding vai no card-content */
+        height: 220px; /* Ajusta altura para mobile */
     }
-    .project-card h3 {
+    .card-content {
+        padding: 20px; /* Padding para o conteúdo do card */
+    }
+    .card-content h3 {
         font-size: 1.6rem;
     }
-    .project-card p {
+    .card-content p {
         font-size: 1rem;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        max-height: 80px; /* Ajusta altura máxima para o texto do parágrafo */
     }
     .social-links a img {
         width: 45px;
@@ -471,6 +523,7 @@ footer a:hover {
     .header-content .logo {
         grid-column: 1 / 2;
         grid-row: 1 / 2;
+        padding-right: 0;
     }
     .navbar {
         grid-column: 1 / 3;
